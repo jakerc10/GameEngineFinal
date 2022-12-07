@@ -1,0 +1,17 @@
+In order to implement object pooling, you are requrie to first create an object prefab with which you will 
+isntantiate however many object you believe you are going to require, however more can be added and then removed later on during
+gameplay, but instantiating too many objects will waste precious memory, therefore impeding on your programs performance.
+These objects are then stored within a list, that is then used to find deactivated objects so that a new object can be activated.
+In this case we can instantiate 4 ghosts as that is how many we believe we will want, and then we can activate and deactivate them 
+as the player eats them and they return to the center of the maze.  Object pooling is useful within Pac-Man as it allows the
+system to save on memory and processing power by deactivating ghosts that are no longer being used, as they have been eaten by
+Pac-Man.
+
+To perform an undo of the last seven pellets eaten, what we must first do is ensure too many commands are not already being 
+processed to do we must use a command buffer, which counts the currently processing commands in order to jsutify calling a new 
+command. Then, we must check if the there is 7 pellets eaten already through the use of a counter, which increases for each
+pellet eaten by the player, storing the data of each pellet eaten within a list to refer back to in order to determine where 
+they came from to ensure they are placed in the same location.  Then, we create the pellets back into their original locations.
+The utility of this function within Pac-Man could be for development processes, such as testing the pellet's functionality, as
+well as also should a point multiplier be implemented, this would allow the player to restore 7 pellets from before the 
+multiplier was obtained in order to add that too their score.
